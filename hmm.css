@@ -1,0 +1,457 @@
+/* =========================
+   RESET & BASE
+========================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    text-align: center;
+    padding: 20px;
+    min-height: 100vh;
+
+    /* Red + Pink gradient */
+    background: linear-gradient(135deg, #ffd1dc, #ff9aa2);
+
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* =========================
+   HEART BACKGROUND
+========================= */
+
+    body::before {
+    content: "❤";
+    position: fixed;
+    top: 60%;              /* thoda neeche */
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    font-size: 55vw;
+    color: rgba(255, 59, 107, 0.22);
+
+    filter: blur(2px);     /* 🔥 important */
+    
+    animation: heartBeat 1.4s infinite;
+    z-index: -1;
+}
+
+
+@keyframes heartBeat {
+    0% {
+        transform: translate(-50%, -50%) scale(1);
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1.12);
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+/* =========================
+   HEADER
+========================= */
+header {
+    background: rgba(255, 255, 255, 0.7);
+    padding: 22px;
+    border-radius: 28px;
+    margin-bottom: 25px;
+
+    box-shadow:
+        0 12px 30px rgba(255, 105, 180, 0.25);
+}
+
+h1 {
+    color: #7a0026;
+    margin-bottom: 8px;
+}
+
+h2 {
+    color: #7a0026;
+    margin: 20px 0;
+}
+
+p {
+    color: #6a0033;
+    line-height: 1.6;
+    animation: textReveal 1.1s ease both;
+}
+
+/* =========================
+   TEXT ANIMATION
+========================= */
+@keyframes textReveal {
+    from {
+        opacity: 0;
+        transform: translateY(14px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =========================
+   SECTIONS / CARDS
+========================= */
+section {
+    background: rgba(255, 255, 255, 0.75);
+    padding: 24px;
+    border-radius: 28px;
+    margin: 22px auto;
+    max-width: 92%;
+
+    box-shadow:
+        0 10px 30px rgba(255, 105, 180, 0.25),
+        inset 0 0 20px rgba(255, 255, 255, 0.6);
+
+    animation: cardFloat 4s ease-in-out infinite;
+}
+
+@keyframes cardFloat {
+    0%   { transform: translateY(0); }
+    50%  { transform: translateY(-8px); }
+    100% { transform: translateY(0); }
+}
+
+/* =========================
+   LINKS AS BUTTONS
+========================= */
+a {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 14px 28px;
+
+    background: linear-gradient(135deg, #ff3b6b, #ff8fab);
+    color: #fff;
+
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+
+    border-radius: 40px;
+
+    box-shadow:
+        0 0 25px rgba(255, 59, 107, 0.7),
+        inset 0 0 15px rgba(255, 255, 255, 0.35);
+
+    animation: buttonBreath 2.6s ease-in-out infinite;
+}
+
+a:hover {
+    box-shadow:
+        0 0 40px rgba(255, 143, 171, 1),
+        inset 0 0 18px rgba(255, 255, 255, 0.4);
+}
+
+/* =========================
+   BUTTON ANIMATION
+========================= */
+@keyframes buttonBreath {
+    0%   { transform: scale(1); }
+    50%  { transform: scale(1.08); }
+    100% { transform: scale(1); }
+}
+
+/* =========================
+   FINAL PAGE (QUOTE)
+========================= */
+.final-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.quote-box {
+    background: rgba(255, 255, 255, 0.8);
+    padding: 30px;
+    border-radius: 30px;
+    max-width: 420px;
+    width: 90%;
+
+    box-shadow:
+        0 0 35px rgba(255, 105, 180, 0.4);
+}
+
+.quote-text {
+    font-size: 17px;
+    line-height: 1.7;
+    letter-spacing: 0.4px;
+    color: #6a0033;
+
+    opacity: 0;
+    animation: fadeFinal 1.4s ease forwards;
+}
+
+@keyframes fadeFinal {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =========================
+   MOBILE FIX
+========================= */
+@media (max-width: 600px) {
+
+    h1 {
+        font-size: 24px;
+    }
+
+    h2 {
+        font-size: 18px;
+    }
+
+    p {
+        font-size: 16px;
+    }
+
+    a {
+        font-size: 17px;
+        padding: 16px 30px;
+    }
+
+    body::before {
+        font-size: 55vw;
+    }
+}
+
+@media (max-width: 600px) {
+    h1 { font-size: 24px; }
+    h2 { font-size: 18px; }
+    p  { font-size: 16px; }
+    a  { font-size: 17px; padding: 16px 30px; }
+    body::before { font-size: 55vw; }
+}
+
+
+
+
+/* Remove default arrow from summary */
+summary::-webkit-details-marker {
+    display: none;
+}
+
+summary {
+    list-style: none;
+}
+
+
+details {
+    background: rgba(255,255,255,0.65);
+    padding: 18px;
+    border-radius: 22px;
+    margin: 16px auto;
+    max-width: 92%;
+
+    box-shadow: 0 10px 25px rgba(255,105,180,0.25);
+}
+/* ===== SUMMARY AS REAL BUTTON ===== */
+details summary {
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    padding: 14px 28px;
+    margin: 14px auto;
+
+    background: linear-gradient(135deg, #ff3b6b, #ff8fab);
+    color: #ffffff;
+
+    font-size: 16px;
+    font-weight: 600;
+
+    border-radius: 999px; /* pill shape */
+    user-select: none;
+
+    box-shadow:
+        0 8px 20px rgba(255, 59, 107, 0.45),
+        inset 0 0 12px rgba(255, 255, 255, 0.25);
+
+    transition: 
+        transform 0.15s ease,
+        box-shadow 0.15s ease;
+}
+
+/* Remove default arrow (again, safety) */
+summary::-webkit-details-marker {
+    display: none;
+}
+summary {
+    list-style: none;
+}
+
+/* ===== PRESS FEEL ===== */
+details summary:active {
+    transform: scale(0.96);
+    box-shadow:
+        0 4px 12px rgba(255, 59, 107, 0.35),
+        inset 0 0 18px rgba(0, 0, 0, 0.15);
+}
+
+/* ===== OPEN STATE (slightly different look) ===== */
+details[open] summary {
+    background: linear-gradient(135deg, #ff1f5a, #ff6fa3);
+    box-shadow:
+        0 10px 28px rgba(255, 31, 90, 0.55);
+}
+@media (max-width: 600px) {
+    details summary {
+        font-size: 17px;
+        padding: 16px 32px;
+    }
+}
+
+/* ===== HOVER GLOW & LIFT EFFECT ===== */
+details summary {
+    position: relative;
+    overflow: hidden; /* shine ke liye */
+}
+
+/* Hover effect (desktop / laptop) */
+details summary:hover {
+    transform: translateY(-3px) scale(1.03);
+
+    box-shadow:
+        0 14px 35px rgba(255, 59, 107, 0.65),
+        0 0 25px rgba(255, 143, 171, 0.9),
+        inset 0 0 18px rgba(255, 255, 255, 0.35);
+}
+
+/* Subtle glow pulse on hover */
+details summary:hover {
+    animation: hoverPulse 1.2s infinite;
+}
+
+@keyframes hoverPulse {
+    0% {
+        box-shadow:
+            0 14px 35px rgba(255, 59, 107, 0.6),
+            0 0 20px rgba(255, 143, 171, 0.7);
+    }
+    50% {
+        box-shadow:
+            0 18px 45px rgba(255, 59, 107, 0.9),
+            0 0 35px rgba(255, 143, 171, 1);
+    }
+    100% {
+        box-shadow:
+            0 14px 35px rgba(255, 59, 107, 0.6),
+            0 0 20px rgba(255, 143, 171, 0.7);
+    }
+}
+details summary::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -120%;
+    width: 120%;
+    height: 100%;
+
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255, 255, 255, 0.5),
+        transparent
+    );
+
+    transition: left 0.6s ease;
+}
+
+details summary:hover::after {
+    left: 120%;
+}
+
+
+.gift {
+  margin: 40px auto;
+}
+
+.gift-box {
+  position: relative;
+  padding: 18px 34px;
+  background: linear-gradient(135deg, #ff3b6b, #ff8fab);
+  color: white;
+  font-weight: 600;
+  border-radius: 20px;
+  cursor: pointer;
+  list-style: none;
+  box-shadow: 0 10px 30px rgba(255,59,107,0.5);
+  overflow: hidden;
+}
+
+
+/* Vertical ribbon */
+.gift-box::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 10px;
+  height: 100%;
+  background: rgba(255,255,255,0.9);
+  transform: translateX(-50%);
+  transition: all 0.6s ease;
+}
+
+/* Horizontal ribbon */
+.gift-box::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 10px;
+  background: rgba(255,255,255,0.9);
+  transform: translateY(-50%);
+  transition: all 0.6s ease;
+}
+
+
+/* When gift is opened */
+.gift[open] .gift-box::before {
+  opacity: 0;
+  transform: translateX(-50%) scaleY(0);
+}
+
+.gift[open] .gift-box::after {
+  opacity: 0;
+  transform: translateY(-50%) scaleX(0);
+}
+
+
+.gift-content {
+  margin-top: 20px;
+  background: rgba(255,255,255,0.8);
+  padding: 22px;
+  border-radius: 20px;
+  opacity: 0;
+  transform: translateY(-10px) scale(0.95);
+  animation: none;
+}
+
+.gift[open] .gift-content {
+  animation: giftReveal 0.9s ease forwards;
+}
+
+@keyframes giftReveal {
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+
